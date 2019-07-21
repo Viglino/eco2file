@@ -42,6 +42,9 @@ import './src/interaction/interactions'
 import './src/panel/menu'
 import './src/dialog/dialogs'
 
+// Github
+import './src/github'
+
 /* DEBUG */
 window.map = map;
 /* */
