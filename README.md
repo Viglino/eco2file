@@ -1,6 +1,11 @@
 # eco2file
 
-Chargement des signalements de l'Espace Collaboratif sur une carte et enregistrement au format CSV / GeoJSON.
+*Chargement des signalements de l'Espace Collaboratif IGN sur une carte et enregistrement au format CSV / GeoJSON.*
+
+## Overview
+
+Ce projet utilise l'[API de l'Espace collaboratif de l'IGN](https://espacecollaboratif.ign.fr/api/doc/georem) pour charger des signalements depuis ce site.
+Il permet ensuite de sauvegarder les signalements au format CSV ou GeoJSON pour un traitement particulier.
 
 ## Getting Started
 
