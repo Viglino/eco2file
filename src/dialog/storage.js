@@ -2,7 +2,7 @@
 let valdef = {
   login: '',
   attribut: '',
-  limit: 200,
+  limit: 100,
   groupe: '',
   valid: '',
   croquis: '',

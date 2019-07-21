@@ -20,6 +20,9 @@ textarea, input{
 *:focus {
   outline: 0;
 }
+::placeholder {
+  font-style: italic;
+}
 textarea:focus {
   outline:1px;
 	border-color: orange;
@@ -85,4 +88,9 @@ label input[type="checkbox"] ~ span:before {
 label input[type="checkbox"]:checked ~ span:before {
   content: "\f00c";
   background-color: #19f;
+}
+
+#menu .page.about > div {
+  top: 2.5em;
+  font-size: 1.5em;
 }
