@@ -1,6 +1,6 @@
-# Eco2Carte
+# eco2file
 
-Chargement des signalements de l'Espace Collaboratif sur une carte et enregistrement au format carte pour visualisation sur le site Ma carte (http://macarte.ign.fr).
+Chargement des signalements de l'Espace Collaboratif sur une carte et enregistrement au format CSV / GeoJSON.
 
 ## Getting Started
 
