@@ -4,8 +4,10 @@
 
 ## Overview
 
-Ce projet utilise l'[API de l'Espace collaboratif de l'IGN](https://espacecollaboratif.ign.fr/api/doc/georem) pour charger des signalements depuis ce site.
-Il permet ensuite de sauvegarder les signalements au format CSV ou GeoJSON pour un traitement particulier.
+Ce projet utilise l'[API de l'Espace collaboratif de l'IGN](https://espacecollaboratif.ign.fr/api/doc/georem) pour charger des signalements depuis ce site.    
+Il permet ensuite de sauvegarder les signalements au format CSV ou GeoJSON pour un traitement spécifique.
+
+Vous devez au préalable avoir un compte sur [l'Espace collaboratif de l'IGN](https://espacecollaboratif.ign.fr) et définir un [profil de chargement sur votre page](https://espacecollaboratif.ign.fr/profile/).
 
 ## Getting Started
 
