@@ -1,0 +1,104 @@
+#menu .dialog {
+  background-color: rgba(0,0,0,.5);
+  opacity: 0;
+  transition: opacity .2s;
+}
+#menu .dialog.active {
+  opacity: 1;
+}
+#menu .dialog > div {
+  top:0;
+} 
+#menu .dialog > i, 
+#menu .dialog > h1 {
+  display: none;
+}
+#menu .dialog form {
+  top: -100%;
+  transform: translateY(-20%);
+  transition: all .5s;
+}
+#menu .dialog.active form {
+  top: 20%;
+}
+
+/* Wait */
+body .wait {
+  display: none;
+}
+body.loading .wait {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  font-size: 5em;
+  transform: translate(-50%, -50%);
+  opacity: 1!important;
+  display: block;
+}
+body.loading #menu form > * {
+  opacity: .3;
+}
+
+/* Upload form */
+#menu form {
+  position: relative;
+  margin: 0 auto;
+  width: 25em;
+  border: 2px solid #19f;
+  padding: 1em;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+#menu form p {
+  font-style: italic; 
+  margin: 0 0 1em;
+  font-size: .95em;
+  color: #f80;
+}
+#menu form p a {
+  color: #f80;
+}
+#menu form label {
+  display: block;
+}
+#menu form input {
+  font-size: 1em;
+}
+#menu h2 {
+  margin: 0 0 .5em;
+}
+#menu form.download input[type=button] {
+  width: 80%;
+  margin: 2em auto;
+  padding: .2em;
+  display: block;
+  background-color: #19f;
+  color: #fff;
+  border-color: #19f;
+  transform: scaleY(1.8);
+  border-width: 1px 2px;
+}
+#menu form.download input.cancel {
+  background-color: fixed;
+  border-color: #ccc;
+  background-color: #eee;
+  color: #666;
+}
+#menu form input[type="text"],
+#menu form input[type="password"] {
+  width: 100%;
+  margin-bottom: .5em;
+}
+
+#menu form .buttons {
+  text-align: right;
+  margin: .5em 0 0 0;
+}
+#menu form input[type="submit"] {
+  background-color: #19f;
+  color: #fff;
+  border: 0;
+  padding: .2em .8em;
+  margin: .5em 0;
+  transform: scaleY(1.8);
+}

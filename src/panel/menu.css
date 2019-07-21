@@ -1,0 +1,100 @@
+#menu {
+  position: absolute;
+  z-index: 99;
+  color: #fff;
+}
+#menu > * {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: none;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+#menu .back {
+  background-color: rgba(0,0,0,.5);
+}
+
+#menu ul.menu {
+  background-color: #fff;
+  color: #369;
+  right: unset;
+  width: 16em;
+  margin: 0;
+  padding: .5em 0;
+  list-style: none;
+  font-size: 1.2em;
+  overflow-y: auto;
+  bottom: 0;
+}
+#menu ul.menu li {
+  border-bottom: 1px solid#369;
+  padding: .5em 0;
+  cursor: pointer;
+}
+#menu ul.menu li span {
+  font-size: .9em;
+  transform: scaleY(1.4);
+  display: inline-block;
+}
+#menu ul.menu li i {
+  width: 1.5em;
+  text-align: center;
+}
+#menu ul.menu li img {
+  width: 100%;
+  margin-top: 1em;
+}
+#menu ul.menu li:last-child {
+  border: 0
+}
+
+/* Pages */
+#menu .page {
+  background-color: #fff;
+  color: #666;
+  padding: 1em;
+  left: -100%;
+  display: block;
+}
+#menu .page.active {
+  left: 0;
+}
+#menu .page > h1 {
+  position: absolute;
+  top: 0;
+  margin: .4em 0 0 .8em;
+  overflow: hidden;
+}
+#menu .page > div {
+  position: absolute;
+  top: 4em;
+  bottom: 0;
+  overflow: auto;
+  right: 0;
+  left: 0;
+  padding: 0 1em;
+}
+
+#menu .page > i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.3em;
+  padding: 0 1em 0 .2em;
+  font-style: normal;
+  font-size: 3em;
+  cursor: pointer;
+  z-index: 1;
+}
+.fa-times {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: .5em;
+  font-size: 1.5em;
+  cursor: pointer;
+}

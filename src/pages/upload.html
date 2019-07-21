@@ -1,0 +1,39 @@
+<form>
+  <label>Login: </label>
+  <input class="login" type="text" value="" />
+  <br/>
+  <label>Mot de passe : </label>
+  <input class="pwd" type="password" value="" />
+
+  <hr/>
+
+  <label>Nombre de signalements : </label>
+  <input class="limit" type="number" value="200" />
+
+  <label>Identifiant du groupe : </label>
+  <input class="groupe" type="number" value="" />
+  <p>
+    Pensez à activer 
+    <a href="https://espacecollaboratif.ign.fr/profile/" target="new">
+      le profil sur l'espace collaboratif
+    </a>...
+  </p>
+
+  <label><input class="valid" type="checkbox" /> <span>seulement les validées</span></label>
+  <label><input class="croquis" type="checkbox" /> <span>avec croquis</span></label>
+
+<!--
+  <hr/>
+
+  <label>Attributs : </label>
+  <input class="attribut" type="text" value="" />
+-->
+
+  <div class="buttons">
+    <input type='submit' value="Charger" />
+    <input type='button' class="cancel" value="Annuler" />
+  </div>
+  <div class="wait">
+    <i class="fa fa-spinner fa-pulse"></i>
+  </div>
+</form>

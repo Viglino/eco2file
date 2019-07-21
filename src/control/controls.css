@@ -1,0 +1,21 @@
+.ol-touch .ol-search,
+.ol-search {
+  left: auto;
+  right: 0;
+  z-index: 1;
+}
+.ol-search button {
+  background: none;
+  font-weight: normal;
+}
+.ol-search button:before {
+  content: "\f002";
+  font-family: "FontAwesome"
+}
+.ol-search input {
+  margin: .3em;
+}
+.ol-search ul {
+  background-color: #fff;
+  min-width: 100%;
+}
