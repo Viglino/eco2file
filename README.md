@@ -9,6 +9,8 @@ Il permet ensuite de sauvegarder les signalements au format CSV ou GeoJSON pour 
 
 Vous devez au préalable avoir un compte sur [l'Espace collaboratif de l'IGN](https://espacecollaboratif.ign.fr) et définir un [profil de chargement sur votre page](https://espacecollaboratif.ign.fr/profile/).
 
+Vous pouvez [tester le servce en ligne](https://viglino.github.io/eco2file/dist/).
+
 ## Getting Started
 
 ### Installer la dernère version de NodeJS
