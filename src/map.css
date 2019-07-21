@@ -1,0 +1,199 @@
+#map {
+  position: fixed;
+  top: 5em;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#map .ol-attribution {
+  background: transparent;
+  height: auto;
+  padding: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 4px 0 0;
+  line-height: 1em;
+}
+#map .ol-attribution ul {
+  display: block;
+}
+#map .ol-attribution button {
+  display: none;
+}
+
+#map .ol-attribution img:first-child {
+  margin-left: 0;
+}
+#map .ol-attribution img {
+  max-height: 3em;
+  margin: 0 .25em .25em .5em;
+  opacity: .8;
+}
+
+/* Disable popup */
+#map .ol-popup.none {
+  min-width: 5em;
+  border: 0;
+  height: 0;
+  pointer-events: none;
+}
+#map .ol-popup.none .anchor,
+#map .ol-popup.none .closeBox,
+#map .ol-popup.none .content {
+  display: none;
+}
+#map .ol-popup.none .anchor {
+  display: block;
+  margin: 0;
+}
+#map .ol-popup.none .anchor:before {
+  content:"";
+  width: 16px;
+  height: 16px;
+	border: 5px solid #0f0;
+  top: -13px;
+  left: -13px;
+  border-radius: 100%;
+  opacity: .8;
+  position: absolute;
+}
+/**/
+
+.ol-control:hover,
+.ol-control {
+  background-color: #1398e3;
+  border-radius: 0;
+  padding: 0;
+}
+
+.ol-control button:hover,
+.ol-control button:focus,
+.ol-control button {
+  font-size: 1.5em;
+  background-color: #1398e3;
+  margin: 0;
+  width: 1.6em;
+  height: 1.6em;
+}
+#map .ol-permalink {
+  display: none;
+}
+
+#map .ol-geobar {
+  bottom: 3em;
+  left: 0;
+  right: auto;
+}
+#map .ol-geobar .ol-bar {
+  display: none;
+}
+
+#map .ol-control.search {
+  top: .5em;
+  right: 0;
+}
+
+#map .ol-zoom {
+  left: 0;
+}
+
+/* Geolocation bar */
+.ol-bar.ol-geobar .geolocBt button:after,
+.ol-bar.ol-geobar .geolocBt button:before {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.ol-bar.ol-geobar .geolocBt button::after {
+  width: .2em;
+  height: .2em;
+  border: 0;
+  background: transparent;
+  box-shadow: -.4em 0, .4em 0, 0 .4em, 0 -.4em;
+}
+.ol-bar.ol-geobar .geolocBt button:before {
+  background-color: transparent;
+  width: .7em;
+  height: .7em;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: .1em solid #fff;
+}
+
+.ol-geobar .ol-active {
+  -webkit-animation: blink-animation 1s linear infinite;
+	animation: blink-animation 1s linear infinite;
+}
+.ol-geobar .ol-toggle.ol-active button {
+  background-color: transparent!important;
+}
+@keyframes blink-animation {
+  0%
+  {
+  	background-color: rgba(0,60,136,.5);
+  }
+  70%
+  {
+  	background-color: rgba(0,60,136,.5);
+  }
+  71% {
+    background-color: rgba(0,60,136,0.9);
+  }
+  100% {
+    background-color: rgba(0,60,136,0.9);
+  }
+}
+@-webkit-keyframes blink-animation {
+  0%
+  {
+  	background-color: rgba(0,60,136,.5);
+  }
+  70%
+  {
+  	background-color: rgba(0,60,136,.5);
+  }
+  71% {
+    background-color: rgba(0,60,136,0.9);
+  }
+  100% {
+    background-color: rgba(0,60,136,0.9);
+  }
+}
+
+/* Layer switcher */
+#map .layers {
+  top: 3.5em;
+  right: 0;
+}
+
+.ol-popup.default {
+  max-width: 50%;
+}
+
+.ol-control.upload {
+  top: 3.5em;
+  right: 0;
+}
+.ol-control.download {
+  top: 6.5em;
+  right: 0;
+}
+
+#map .ol-layerswitcher {
+  left: 0;
+  right: auto;
+  top: 6em;
+}
+#map .ol-layerswitcher button {
+  float: left;
+}
+#map .ol-layerswitcher button:before {
+  background: #19f;
+  box-shadow: 0.1em 0.1em #fff;
+}
+#map .ol-layerswitcher button:after {
+  background: #fff;
+  background-image: none;
+}

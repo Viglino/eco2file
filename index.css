@@ -1,0 +1,88 @@
+* {
+	-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+	-webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+	box-sizing: border-box;
+}
+textarea, input{
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -o-user-select: text;
+  user-select: text;
+	border-radius: 0;
+}
+*:focus {
+  outline: 0;
+}
+textarea:focus {
+  outline:1px;
+	border-color: orange;
+}
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=number]:focus, 
+input[type=search]:focus {
+	border-color: #fa0 /*orange*/;
+}
+input {
+  border: 2px solid #ccc;
+  padding: .5em;
+}
+
+html,
+body {
+  font-family: OpenSansExtraBold,"Open Sans",Arial,sans-serif;
+  font-size: 16px;
+  margin:0;
+}
+
+#header {
+  color: #369;
+  font-size: 2em;
+  margin: 0;
+  height: 2.5em;
+}
+
+#header .fa {
+  padding: .75em 0;
+}
+#header .fa-bars {
+  background: #19e;
+  color: #fff;
+  padding: .75em;
+  margin-right: .5em;
+  cursor: pointer;
+}
+
+label {
+  position: relative;
+  cursor: pointer;
+}
+label input[type="checkbox"] {
+  opacity: 0;
+}
+label input[type="checkbox"] ~ span:before {
+  content:"";
+  position: absolute;
+  font-size: .8em;
+  left: .3em;
+  top: .3em;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  padding: .1em;
+  background-color: #ccc;
+  text-align: center;
+  font-family: "FontAwesome";
+  color: #fff;
+}
+label input[type="checkbox"]:checked ~ span:before {
+  content: "\f00c";
+  background-color: #19f;
+}
