@@ -25,12 +25,7 @@ const attributeList2 = ['id','dep','id_dep','commune',
   'groupe','date', 'doc'];
 
   // Charger les donnees dans la carte
-function loadCarte (ripart, r, attribut) {
-  if (!r || !r.length) {
-    console.error ("Chargement impossible");
-    alert ("Rien a charger...");
-    return;
-  };
+function loadCarte (ripart, r) {
   // console.log(r);
   var features = [];
   var p;
@@ -73,9 +68,8 @@ function loadCarte (ripart, r, attribut) {
     }
   }
 
-  vector.getSource().clear();
+  // vector.getSource().clear();
   vector.getSource().addFeatures(features);
-  map.getView().setCenter(p.getCoordinates());
 };
 
 $(".cancel", form).click(()=>{
@@ -89,17 +83,14 @@ form.on('submit', function(e) {
   const login = $('.login', form).val();
   const pwd = $('.pwd', form).val();
 
-  const attribut = $(".attribut", form).val();
   const groupe = $(".groupe", form).val();
-  const limit = $(".limit", form).val();
+  const limit = $(".limit", form).val() || Infinity;
   const valid = $(".valid", form).prop('checked');
   const croquis = $(".croquis", form).prop('checked');
 
   storage.save({
     login: login,
-    attribut: attribut,
     limit: limit,
-    groupe: groupe,
     groupe: groupe,
     valid: valid,
     croquis: croquis,
@@ -108,20 +99,48 @@ form.on('submit', function(e) {
   const ripart = new RIPart({ user:login, pwd:pwd });
   
   var prop = { 
-    limit: limit, 
+    offset: 0,
+    limit: 20, 
     croquis: croquis
   };
   if (groupe) prop['groups[]'] = groupe;
   if (valid) prop.status = "valid";
 
+  var nb = 0;
   $('body').addClass('loading');
-  ripart.getGeorems(prop, 
-    function(r) {
-      loadCarte(ripart, r, attribut||'')
-      page.hide();
-      $('body').removeClass('loading');
-    }
-  );
+  const progress = $('.wait .progress > div').width(0);
+  function loadPart() {
+    ripart.getGeorems(prop, 
+      function(r) {
+        if (!r) {
+          $('body').removeClass('loading');
+          alert ("Chargement impossible, vérifiez votre mot de passe...");
+          return;
+        };
+        if (r.position > limit) {
+          for (let i=limit; i<r.position; i++) r.georem.pop();
+        }
+        loadCarte(ripart, r.georem);
+        progress.css ('width', Math.round(vector.getSource().getFeatures().length / Math.min(limit,r.total) * 100) +'%');
+        // Load next
+        if (r.position < limit && r.position < r.total) {
+          loadPart();
+        } else {
+          // Finish
+          page.hide();
+          $('body').removeClass('loading');
+          if (!vector.getSource().getFeatures().length) {
+            alert ("Rien a charger...");
+          } else {
+            map.getView().fit(vector.getSource().getExtent());
+          }
+        }
+      }
+    );
+    prop.offset += prop.limit;
+  }
+  vector.getSource().clear();
+  loadPart();
 
 });
 

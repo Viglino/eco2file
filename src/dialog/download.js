@@ -25,7 +25,7 @@ function download (type) {
   let file = '';
 
   switch (type) {
-    case 'geosjon': {
+    case 'geojson': {
       file = (new GeoJSON()).writeFeatures(features, { featureProjection:'EPSG:3857', dataProjection:'EPSG:4326' })
       break;
     }
@@ -60,7 +60,7 @@ function download (type) {
         }
       });
       csv.unshift(cols);
-      file = unparse(csv);
+      file = unparse(csv, { delimiter: ';' });
       break;
     }
   }

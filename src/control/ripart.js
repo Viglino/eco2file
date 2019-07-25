@@ -9,8 +9,7 @@ import {transform as ol_proj_transform} from 'ol/proj'
 */
 var RIPart = function(options)
 {	options = options || {};
-	// 
-	var secret = "Espace Collaboratif IGN";
+
 	// Url du service
 	var url = options.url || "https://espacecollaboratif.ign.fr/api/";
 	var user, pwd;
@@ -395,17 +394,23 @@ var RIPart = function(options)
 	* 	@param {boolean} params.croquis extraire les croquis
 	* @param {function} callback function (response, error)
 	*/
-	this.getGeorems = function (params, cback)
-	{	if (!params) params = {};
+	this.getGeorems = function (params, cback) {
+		if (!params) params = {};
 		var croquis = params.croquis;
 		delete params.croquis;
 		// Decodage de la reponse
-		function decode(resp)
-		{	var r = [];
-			resp.find("GEOREM").each(function()
-			{	r.push (getGeorem($(this), { croquis: croquis }));
+		function decode(resp) {
+			var r = [];
+			resp.find("GEOREM").each(function() {
+				r.push (getGeorem($(this), { croquis: croquis }));
 			});
-			return r;
+			var position = resp.find("POSITION").text();
+			var total = resp.find("TOTAL").text();
+			return {
+				position: position,
+				total: total,
+				georem: r
+			};
 		}
 		// Demander au serveur
 		return sendRequest ("georems_get", params, decode, cback);

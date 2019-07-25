@@ -26,18 +26,25 @@
 body .wait {
   display: none;
 }
-body.loading .wait {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  font-size: 5em;
-  transform: translate(-50%, -50%);
-  opacity: 1!important;
-  display: block;
-}
 body.loading #menu form > * {
-  opacity: .3;
+  display: none;
 }
+body.loading .wait {
+  display: block!important;
+}
+body.loading .wait .progress {
+  display: block;
+  width: 100%;
+  border: 2px solid #19f;
+  padding: 1px;
+  margin: .5em 0;
+}
+body.loading .wait .progress > div {
+  height: 1em;
+  width: 50%;
+  background: #19f;
+}
+
 
 /* Upload form */
 #menu form {
