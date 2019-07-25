@@ -84,7 +84,7 @@ form.on('submit', function(e) {
   const pwd = $('.pwd', form).val();
 
   const groupe = $(".groupe", form).val();
-  const limit = $(".limit", form).val() || Infinity;
+  const limit = parseInt($(".limit", form).val()) || Infinity;
   const valid = $(".valid", form).prop('checked');
   const croquis = $(".croquis", form).prop('checked');
 
