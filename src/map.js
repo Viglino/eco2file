@@ -11,7 +11,10 @@ import {defaults as defaultInteractions} from 'ol/interaction.js';
 import Permalink from 'ol-ext/control/Permalink'
 import VectorSource from 'ol/source/Vector'
 import VectorLayer from 'ol/layer/Vector'
-
+import Style from 'ol/style/Style'
+import Circle from 'ol/style/Circle'
+import Stroke from 'ol/style/Stroke'
+import Fill from 'ol/style/Fill'
 
 // New map
 $('<div>').attr('id','map').appendTo('body');
@@ -78,7 +81,14 @@ for (let i in layers) {
 // Add vector source
 const vector = new VectorLayer({
   name:"Signalements",
-  source: new VectorSource()
+  source: new VectorSource(),
+  style: new Style ({
+    image: new Circle({ 
+      radius: 5,
+      stroke: new Stroke ({ width: 1.5, color: '#fff' }),
+      fill: new Fill ({ color: '#f00' })
+    })
+  })
 });
 map.addLayer(vector);
 
