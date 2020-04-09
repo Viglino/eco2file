@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html --out-dir ./.dist",
-    "build": "parcel build index.html --no-source-maps --no-content-hash --public-url . --out-dir ./dist index.html"
+    "build": "parcel build --no-source-maps --public-url . --out-dir ./build index.html"
   },
   "keywords": [
     "Espace Collaboratif",
@@ -19,17 +19,18 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-plugin-transform-html-import-to-string": "0.0.1",
-    "parcel-bundler": "^1.9.4",
-    "parcel-plugin-clean-dist": "0.0.6"
+    "parcel-bundler": "^1.9.4"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "file-saver": "^2.0.0-rc.3",
     "font-awesome": "^4.7.0",
     "iconicss": "0.0.3",
-    "jquery": "^3.4.0",
+    "jquery": "^3.3.1",
     "ol": "^5.1.3",
     "ol-ext": "^3.0.2",
-    "papaparse": "^4.6.0"
+    "papaparse": "^4.6.0",
+    "proj4": "^2.5.0",
+    "webfontloader": "^1.6.28"
   }
 }

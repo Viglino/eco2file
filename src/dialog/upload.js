@@ -117,12 +117,15 @@ form.on('submit', function(e) {
           alert ("Chargement impossible, vérifiez votre mot de passe...");
           return;
         };
+        r.position = parseInt(r.position);
+        r.total = parseInt(r.total);
         if (r.position > limit) {
           for (let i=limit; i<r.position; i++) r.georem.pop();
         }
         loadCarte(ripart, r.georem);
         progress.css ('width', Math.round(vector.getSource().getFeatures().length / Math.min(limit,r.total) * 100) +'%');
         // Load next
+        console.log(r)
         if (r.position < limit && r.position < r.total) {
           loadPart();
         } else {
