@@ -1,12 +1,12 @@
 {
-  "name": "Eco2file",
+  "name": "Eco2File",
   "version": "1.0.0",
   "description": "Export de signalements de l'Espace Collaboratif dans divers formats (CSV, GeoJSON).",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html --out-dir ./.dist",
-    "build": "parcel build --no-source-maps --public-url . --out-dir ./build index.html"
+    "build": "parcel build --no-source-maps --public-url . --out-dir ./dist index.html"
   },
   "keywords": [
     "Espace Collaboratif",
@@ -19,7 +19,8 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-plugin-transform-html-import-to-string": "0.0.1",
-    "parcel-bundler": "^1.9.4"
+    "parcel-bundler": "^1.9.4",
+    "parcel-plugin-clean-dist": "0.0.6"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
