@@ -104,7 +104,7 @@ form.on('submit', function(e) {
     croquis: croquis
   };
   if (groupe) prop['groups[]'] = groupe;
-  if (valid) prop.status = "valid";
+  if (valid) prop['status[]'] = ['valid'];
 
   var nb = 0;
   $('body').addClass('loading');
