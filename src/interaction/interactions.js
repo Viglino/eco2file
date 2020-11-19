@@ -36,3 +36,9 @@ select.on('select', (e) => {
 });
 
 map.addInteraction(select);
+
+/* Clear selection */
+export default () => {
+  select.getFeatures().clear();
+  popup.hide();
+}

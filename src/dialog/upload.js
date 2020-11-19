@@ -17,6 +17,7 @@ if (valdef) {
   $(".groupe", form).val(valdef.groupe);
   $(".valid", form).prop('checked', valdef.valid);
   $(".croquis", form).prop('checked', valdef.croquis);
+  $(".prefix", form).prop('checked', valdef.prefix);
 }
 
 // List des attributs a charger
@@ -26,17 +27,18 @@ const attributeList2 = ['id','dep','id_dep','commune',
 
   // Charger les donnees dans la carte
 function loadCarte (ripart, r) {
-  // console.log(r);
   var features = [];
   var p;
+  var prefix = valdef.prefix ? '_':'';
   for (var i=0, fi; fi=r[i]; i++) {
     p = new ol_geom_Point([fi.lon, fi.lat]);
     p.transform("EPSG:4326",map.getView().getProjection());
     var f = new ol_Feature(p);
     attributeList2.forEach((k) => {
-      f.set(k, fi[k]);
+      f.set(prefix+k, fi[k]);
     });
-    f.set('doc', f.get('doc').replace(/[^0-9]*([0-9]*)$/,"$1"));
+    f.set(prefix+'doc', f.get(prefix+'doc').replace(/[^0-9]*([0-9]*)$/,"$1"));
+    if (fi.themes[0]) f.set(prefix+'theme', fi.themes[0].nom);
     var atts = fi.themes[0].attribut;
     if (atts) {
       for (var k in atts) {
@@ -76,8 +78,11 @@ $(".cancel", form).click(()=>{
   page.hide();
 });
 
+import select from '../interaction/interactions'
+
 // Go!
 form.on('submit', function(e) {
+  select();
   e.preventDefault();
   e.stopPropagation();
   const login = $('.login', form).val();
@@ -87,6 +92,7 @@ form.on('submit', function(e) {
   const limit = parseInt($(".limit", form).val()) || Infinity;
   const valid = $(".valid", form).prop('checked');
   const croquis = $(".croquis", form).prop('checked');
+  const prefix = $(".prefix", form).prop('checked');
 
   storage.save({
     login: login,
@@ -94,6 +100,7 @@ form.on('submit', function(e) {
     groupe: groupe,
     valid: valid,
     croquis: croquis,
+    prefix: prefix,
   });
 
   const ripart = new RIPart({ user:login, pwd:pwd });
@@ -106,7 +113,6 @@ form.on('submit', function(e) {
   if (groupe) prop['groups[]'] = groupe;
   if (valid) prop['status[]'] = ['valid'];
 
-  var nb = 0;
   $('body').addClass('loading');
   const progress = $('.wait .progress > div').width(0);
   function loadPart() {
