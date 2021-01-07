@@ -1,6 +1,6 @@
 const config = {
   "title": "eco2file",
-  "apiKey": "pratique",
+  "apiKey": "choisirgeoportail",
 };
 
 export default config

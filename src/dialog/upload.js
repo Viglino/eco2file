@@ -17,6 +17,7 @@ if (valdef) {
   $(".groupe", form).val(valdef.groupe);
   $(".valid", form).prop('checked', valdef.valid);
   $(".croquis", form).prop('checked', valdef.croquis);
+  $(".join", form).prop('checked', valdef.join);
   $(".prefix", form).prop('checked', valdef.prefix);
 }
 
@@ -26,11 +27,12 @@ const attributeList2 = ['id','dep','id_dep','commune',
   'groupe','date', 'doc'];
 
   // Charger les donnees dans la carte
-function loadCarte (ripart, r) {
+function loadCarte (ripart, r, join) {
   var features = [];
   var p;
   var prefix = valdef.prefix ? '_':'';
   for (var i=0, fi; fi=r[i]; i++) {
+    if (join && !fi['doc']) continue;
     p = new ol_geom_Point([fi.lon, fi.lat]);
     p.transform("EPSG:4326",map.getView().getProjection());
     var f = new ol_Feature(p);
@@ -92,6 +94,7 @@ form.on('submit', function(e) {
   const limit = parseInt($(".limit", form).val()) || Infinity;
   const valid = $(".valid", form).prop('checked');
   const croquis = $(".croquis", form).prop('checked');
+  const join = $(".join", form).prop('checked');
   const prefix = $(".prefix", form).prop('checked');
 
   storage.save({
@@ -100,6 +103,7 @@ form.on('submit', function(e) {
     groupe: groupe,
     valid: valid,
     croquis: croquis,
+    join: join,
     prefix: prefix,
   });
 
@@ -107,7 +111,7 @@ form.on('submit', function(e) {
   
   var prop = { 
     offset: 0,
-    limit: 20, 
+    limit: 100, 
     croquis: croquis
   };
   if (groupe) prop['groups[]'] = groupe;
@@ -128,7 +132,7 @@ form.on('submit', function(e) {
         if (r.position > limit) {
           for (let i=limit; i<r.position; i++) r.georem.pop();
         }
-        loadCarte(ripart, r.georem);
+        loadCarte(ripart, r.georem, join);
         progress.css ('width', Math.round(vector.getSource().getFeatures().length / Math.min(limit,r.total) * 100) +'%');
         // Load next
         console.log(r)
