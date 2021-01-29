@@ -68,7 +68,8 @@ const layers = {
   }),
   map: createLayer ({
     name: 'Carte IGN', 
-    layer: 'GEOGRAPHICALGRIDSYSTEMS.MAPS'
+    layer: 'GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2',
+    format: 'png'
   })
 };
 
